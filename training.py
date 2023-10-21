@@ -139,7 +139,7 @@ class Trainer():
                 # i.e. (width, height, channels)
                 img_grid = np.transpose(img_grid.numpy(), (1, 2, 0))
                 # Add image grid to training progress
-                training_progress_images.append(img_grid)
+                training_progress_images.append((img_grid * 255).astype(np.uint8))
 
         if save_training_gif:
             imageio.mimsave('./training_{}_epochs.gif'.format(epochs),
